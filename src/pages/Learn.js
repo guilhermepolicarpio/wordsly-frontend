@@ -1,15 +1,15 @@
+import { Container } from '../components/Box.js'
+import LearnBox from '../components/LearnBox.js';
 import Header from '../components/Header';
-import Menu from '../components/Menu';
-import {Container} from '../components/Box.js'
 
-export default function Initial() {
+export default function Learn() {
+
     return (
         <>
             <Container>
                 <Header />
-                <Menu />
+                <LearnBox/>
             </Container>
         </>
     );
 }
-

@@ -1,15 +1,15 @@
+import { Container } from '../components/Box.js'
 import Header from '../components/Header';
-import Menu from '../components/Menu';
-import {Container} from '../components/Box.js'
+import UserBox from '../components/UserBox.js';
 
-export default function Initial() {
+export default function UserPage() {
+
     return (
         <>
             <Container>
                 <Header />
-                <Menu />
+                <UserBox/>
             </Container>
         </>
     );
 }
-

@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <StyledMenu>
             <StyledButton>
-                <Link to="/learn'">
+                <Link to="/learn">
                     <span>Learn Words</span>
                 </Link>
             </StyledButton>
@@ -71,7 +71,14 @@ const StyledButton = styled.div`
     :hover{
     background-color: rgb(225, 225, 225);
     color: rgb(0, 0, 0);
-    transform: scale(1.1, 1.2);
+
+    animation: move-horizontal 0.4s linear ;
+    animation-fill-mode: forwards;
+
+@keyframes move-horizontal {
+    from {transform: translateX(0%);}
+    to {transform: translateX(5%);}
+}
     }
   > a {
     text-decoration: none;
