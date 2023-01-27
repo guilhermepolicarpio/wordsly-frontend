@@ -13,6 +13,9 @@ export default function Header() {
         <Link to="/userpage">
           <p>Hello, visitor</p>
         </Link>
+        <Link to="/">
+           <ion-icon name="home-outline"></ion-icon>
+        </Link>
 
       </UserStyle>
       <p>You already learn 500 words</p>
