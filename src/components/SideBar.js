@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
+
+import UserContext from '../contexts/UserContext'
 
 export default function SideBar() {
+
+    const { userData } = useContext(UserContext);
+    
     return (
         <SideBarBox>
-            <p>Name</p>
+            <p>{userData.user.username}</p>
             <img alt='' src="https://postcron.com/pt/blog/wp-content/uploads/2016/05/foto-de-perfil-para-trabalho.jpg"></img>
             <p>Change Picture</p>
         </SideBarBox>

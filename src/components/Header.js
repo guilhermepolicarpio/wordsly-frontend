@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+
+import UserContext from '../contexts/UserContext'
 
 export default function Header() {
+
+  const { userData } = useContext(UserContext);
 
   return (
 
@@ -11,7 +16,7 @@ export default function Header() {
           <img alt='' src="https://postcron.com/pt/blog/wp-content/uploads/2016/05/foto-de-perfil-para-trabalho.jpg"></img>
         </Link>
         <Link to="/userpage">
-          <p>Hello, visitor</p>
+          <p>Hello, {userData.user.username}</p>
         </Link>
         <Link to="/">
            <ion-icon name="home-outline"></ion-icon>
@@ -60,6 +65,11 @@ const UserStyle = styled.div`
     height: 5vh;
     border-radius: 5vh;
     margin-left: 3vh;
+  }
+
+  ion-icon{
+    width: 2.2vh;
+    height: 2.2vh;
   }
 
   `;

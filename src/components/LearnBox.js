@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import useGetWord from '../hooks/api/useGetWord';
 
 export default function LearnBox() {
 
     const [selectedWord, setSelectedWord] = useState(0);
+    const { word } = useGetWord();
 
-    useEffect(() => {
-        console.log("1")
-    }, [selectedWord]);
+    useEffect(()=>{
+
+    },[])
 
     return (
 
         <Learn>
-            <WordBox onClick={setSelectedWord} > </WordBox>
+            <WordBox onClick={setSelectedWord} >
+               <span>{word}</span> 
+            </WordBox>
             <OptionBox>
                 <CheckBox ><p>Yes</p></CheckBox>
                 <CheckBox ><p>Não</p></CheckBox>
@@ -29,7 +33,10 @@ export const WordBox = styled.div`
 
 width: 200px;
 height: 50px;
-background-color: black;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
 `
 export const OptionBox = styled.div`
 
@@ -55,7 +62,7 @@ background-color: ${props => props.selectedOption ? '#FFEED2' : '#EBEBEB'};
 }
 `
 
-export const Learn= styled.div`
+export const Learn = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
