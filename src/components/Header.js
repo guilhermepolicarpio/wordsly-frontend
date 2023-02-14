@@ -7,13 +7,13 @@ import UserContext from '../contexts/UserContext'
 export default function Header() {
 
   const { userData } = useContext(UserContext);
-  console.log(userData)
+
   return (
 
     <HeaderStyle>
       <UserStyle>
         <Link to="/userpage">
-          <img alt='' src="https://postcron.com/pt/blog/wp-content/uploads/2016/05/foto-de-perfil-para-trabalho.jpg"></img>
+          <img alt='' src={userData.user.userImage}></img>
         </Link>
         <Link to="/userpage">
           <p>Hello, {userData.user.username}</p>

@@ -6,11 +6,12 @@ import UserContext from '../contexts/UserContext'
 export default function SideBar() {
 
     const { userData } = useContext(UserContext);
+    console.log(userData)
     
     return (
         <SideBarBox>
             <p>{userData.user.username}</p>
-            <img alt='' src="https://postcron.com/pt/blog/wp-content/uploads/2016/05/foto-de-perfil-para-trabalho.jpg"></img>
+            <img alt='' src={userData.user.userImage}></img>
             <p>Change Picture</p>
         </SideBarBox>
     )

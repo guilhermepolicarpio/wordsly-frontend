@@ -10,10 +10,11 @@ import useSignUp from '../hooks/api/useSignUp';
 export default function SignUp() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [userImage, setUserImage] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const { loadingSignUp, signUp } = useSignUp();
+    const { signUp } = useSignUp();
 
     const navigate = useNavigate();
 
@@ -24,9 +25,9 @@ export default function SignUp() {
             toast('As senhas devem ser iguais!');
         } else {
           try {
-            await signUp(name,email, password);
+            await signUp(name,email, password, userImage);
             toast('Inscrito com sucesso! Por favor, faça login.');
-            navigate('/sign-in');
+            navigate('/');
           } catch (error) {
             toast('Não foi possível fazer o cadastro!');
           }
@@ -52,6 +53,15 @@ export default function SignUp() {
                     type="text"
                     value={email} 
                     onChange={e => setEmail(e.target.value)} 
+                />
+            </InputWrapper>
+            <InputWrapper>
+                <Input
+                    name="userImage"
+                    placeholder="Profile picture link"
+                    type="text"
+                    value={userImage} 
+                    onChange={e => setUserImage(e.target.value)} 
                 />
             </InputWrapper>
             <InputWrapper>
