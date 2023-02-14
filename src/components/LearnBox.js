@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useEffect, useState, useContext } from 'react';
 import { insertAnswer } from '../hooks/services/answerApi';
 import UserContext from '../contexts/UserContext'
+import ConfigContext from '../contexts/ConfigContext';
 
 export default function LearnBox() {
 
@@ -11,16 +12,17 @@ export default function LearnBox() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [change, setChange] = useState(null);
     const { userData } = useContext(UserContext);
+    const { configData,setConfigData } = useContext(ConfigContext);
 
     var data, correctAuthor;
 
     const randonNumber = () => Math.floor(Math.random() * data.length) + 1;
 
-
+    
     useEffect(() => {
         getCitation();
     }, [change]);
-
+    
     async function getCitation() {
         try {
             const res = await fetch('https://type.fit/api/quotes');
@@ -30,6 +32,7 @@ export default function LearnBox() {
             correctAuthor = data[index].author;
             setcorrectAnswer(correctAuthor);
             setRandomAuthors(getRandonAuthors(data, index, correctAuthor));
+            console.log(configData)
             return randomAuthors
         }
         catch (err) {
@@ -43,7 +46,7 @@ export default function LearnBox() {
 
         const randomOptions = [];
 
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < configData.value; i++) {
             const randomOptionIndex = Math.floor(Math.random() * options.length);
             if (options[randomOptionIndex] !== null) {
                 randomOptions.push(options[randomOptionIndex]);

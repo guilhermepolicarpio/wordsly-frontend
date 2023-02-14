@@ -18,6 +18,8 @@
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
+    "react-select-search": "^4.1.6",
     "react-toastify": "^9.1.1",
     "styled": "^1.0.0",
     "styled-components": "^5.3.6",

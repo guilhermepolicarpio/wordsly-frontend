@@ -1,7 +1,19 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import UserContext from '../contexts/UserContext'
 
 export default function Menu() {
+
+    const { userData,setUserData } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    function handlerExitUser(){
+    setUserData("");
+    console.log(userData)
+    navigate('/');
+    }
+
     return (
         <StyledMenu>
             <StyledButton>
@@ -11,27 +23,27 @@ export default function Menu() {
             </StyledButton>
 
             <StyledButton>
-                <Link to="/historic'">
+                <Link to="/historic">
                     <span>Historic</span>
                 </Link>
             </StyledButton>
 
             <StyledButton>
-                <Link to="/ranking'">
+                <Link to="/ranking">
                     <span>Ranking</span>
                 </Link>
             </StyledButton>
 
             <StyledButton>
-                <Link to="/options'">
+                <Link to="/option">
                     <span>Options</span>
                 </Link>
             </StyledButton>
 
-            <StyledButton>
-                <Link to="/exit'">
+            <StyledButton onClick = {handlerExitUser}>
+                
                     <span>Exit</span>
-                </Link>
+               
             </StyledButton>
         </StyledMenu>
     )

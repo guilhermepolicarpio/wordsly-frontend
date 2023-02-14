@@ -11,8 +11,11 @@ import { Container } from './components/Box.js'
 import GlobalStyle from './globalStyles';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Option from './pages/Options';
 
 import { UserProvider } from './contexts/UserContext';
+import { ConfigProvider } from './contexts/ConfigContext';
+import Soon from './pages/Soon';
 
 function App() {
   return (
@@ -20,15 +23,20 @@ function App() {
       <GlobalStyle />
       <Container>
         <UserProvider>
+        <ConfigProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<Initial />} />
-              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/" element={<SignIn />} />
+              <Route path="/menu" element={<Initial />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/learn" element={<Learn />} />
               <Route path="/userpage" element={<UserPage />} />
+              <Route path="/option" element={<Option />} />
+              <Route path="/ranking" element={<Soon />} />
+              <Route path="/historic" element={<Soon />} />
             </Routes>
           </Router>
+          </ConfigProvider>
         </UserProvider>
       </Container>
     </>

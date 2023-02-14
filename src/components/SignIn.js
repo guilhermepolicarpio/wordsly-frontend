@@ -14,11 +14,10 @@ export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { loadingSignIn, signIn } = useSignIn();
+    const { signIn } = useSignIn();
     const { setUserData } = useContext(UserContext);
 
     const navigate = useNavigate();
-
     async function submit(event) {
         event.preventDefault();
 
@@ -26,7 +25,7 @@ export default function SignIn() {
             const userData = await signIn(email, password);
             completeLogin(userData);
             toast('Login com sucesso!');
-            navigate('/');
+            navigate('/menu');
         } catch (error) {
             toast('Não foi possível fazer o login!');
         }

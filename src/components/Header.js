@@ -7,7 +7,7 @@ import UserContext from '../contexts/UserContext'
 export default function Header() {
 
   const { userData } = useContext(UserContext);
-
+  console.log(userData)
   return (
 
     <HeaderStyle>
@@ -18,7 +18,7 @@ export default function Header() {
         <Link to="/userpage">
           <p>Hello, {userData.user.username}</p>
         </Link>
-        <Link to="/">
+        <Link to="/menu">
            <ion-icon name="home-outline"></ion-icon>
         </Link>
 

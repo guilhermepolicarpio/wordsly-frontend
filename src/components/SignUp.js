@@ -75,7 +75,7 @@ export default function SignUp() {
             </InputWrapper>
 
             <Button type="submit" >Cadastrar</Button>
-            <Link to="/sign-in">
+            <Link to="/">
                 <SignUpText >
                     <p> Já tem cadastro ? Clique aqui</p>
                 </SignUpText>
